@@ -51,7 +51,7 @@ def test_table_created():
     Test table was created.
     """
     
-    test_stmt = ''' SELECT count(name) FROM authors'; '''
+    test_stmt = ''' SELECT count(name) FROM authors; '''
     
     # get connection and cursor to db
     cxn = get_database_connection()
