@@ -14,12 +14,12 @@ def create_table():
     """
 
     create_table = """ CREATE TABLE IF NOT EXISTS authors(
-        ID          INTEGER PRIMARY KEY     AUTOINCREMENT,
+        ID          SERIAL              PRIMARY KEY,
         author      TEXT                NOT NULL,
         title       TEXT                NOT NULL,
         pages       INTEGER             NOT NULL,
         due_date    CHAR(15)            NOT NULL
-    )   
+    );   
     """
 
     pass # student code goes here
@@ -51,7 +51,7 @@ def test_table_created():
     Test table was created.
     """
     
-    test_stmt = ''' SELECT count(name) FROM sqlite_master WHERE type='table' AND name='authors'; '''
+    test_stmt = ''' SELECT count(name) FROM authors'; '''
     
     # get connection and cursor to db
     cxn = get_database_connection()
