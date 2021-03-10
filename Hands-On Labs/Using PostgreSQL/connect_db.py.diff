@@ -13,5 +13,5 @@ index 8397eda..905c3e7 100644
 -
 -    pass
 -
-+    conn = psycopg.connect(dbname=DB_NAME, user="postgres")
++    conn = psycopg2.connect(dbname=DB_NAME, user="cloud_user")
 +    return conn
