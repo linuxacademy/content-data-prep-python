@@ -1,0 +1,17 @@
+diff --git Hands-On Labs/Using PostgreSQL/connect_db.py Hands-On Labs/Using PostgreSQL/connect_db.py
+index 8397eda..905c3e7 100644
+--- Hands-On Labs/Using PostgreSQL/connect_db.py	
++++ Hands-On Labs/Using PostgreSQL/connect_db.py	
+@@ -3,10 +3,5 @@ import psycopg2
+ DB_NAME = "demo"
+ 
+ def get_database_connection():
+-    """
+-    this function should create a connection
+-    to the database and return the connection
+-    """
+-
+-    pass
+-
++    conn = psycopg.connect(dbname=DB_NAME, user="postgres")
++    return conn
