@@ -1,4 +1,4 @@
-import psycopg
+import psycopg2
 
 DB_NAME = "demo"
 
