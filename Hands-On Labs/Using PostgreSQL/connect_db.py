@@ -1,4 +1,4 @@
-import sqlite3
+import psycopg
 
 DB_NAME = "demo"
 
