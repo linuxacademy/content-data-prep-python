@@ -1,0 +1,24 @@
+diff --git Hands-On Labs/Using PostgreSQL/read_data.py Hands-On Labs/Using PostgreSQL/read_data.py
+index 153ce2f..b77a5f6 100644
+--- Hands-On Labs/Using PostgreSQL/read_data.py	
++++ Hands-On Labs/Using PostgreSQL/read_data.py	
+@@ -11,7 +11,18 @@ def read_data_from_db():
+     """
+     
+     sql_query = ''' SELECT author,title,due_date FROM authors; '''
+-      
++    
++    conn = get_database_connection()
++    cur = conn.cursor()
++
++    cur.execute(sql_query)
++    results = cur.fetchall()
++
++    cur.close()
++    conn.close()
++
++    return results
++ 
+ 
+ def test_read_data(results):
+     expected = [('Thompson, Keith', 'Oh Python! My Python!', '2029-11-15'), ('Fritts, Larry', 'Fun with Django', '2021-06-23'), ('Applegate, John', 'When Bees Attack! The Horror!', '2020-12-10'), ('Brown, James', "Martin Buber's Philosophies", '0221-07-12'), ('Smith, Jackson', 'The Sun Also Orbits', '2020-10-31'), ('Smith, Jackson', 'The Sun Also Orbits', '2029-10-31')]  
