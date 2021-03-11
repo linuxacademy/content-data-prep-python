@@ -1,0 +1,18 @@
+diff --git Hands-On Labs/Using PostgreSQL/update_data.py Hands-On Labs/Using PostgreSQL/update_data.py
+index c19ca66..45d6919 100644
+--- Hands-On Labs/Using PostgreSQL/update_data.py	
++++ Hands-On Labs/Using PostgreSQL/update_data.py	
+@@ -22,7 +22,12 @@ def update_data():
+     correct the due date of the entry
+     """
+     sql_query = ''' UPDATE authors SET due_date='2020-10-31' WHERE author='Smith, Jackson'; '''
+-    
++
++    conn = get_database_connection()
++    cur = conn.cursor()
++    cur.execute(sql_query)
++    conn.commit()
++    conn.close()
+ 
+ def test_delete_data():
+     sql_query = ''' SELECT count(author) FROM authors WHERE author='Smith, Jackson'; '''

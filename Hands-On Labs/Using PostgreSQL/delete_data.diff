@@ -1,0 +1,18 @@
+diff --git Hands-On Labs/Using PostgreSQL/update_data.py Hands-On Labs/Using PostgreSQL/update_data.py
+index c19ca66..0668c74 100644
+--- Hands-On Labs/Using PostgreSQL/update_data.py	
++++ Hands-On Labs/Using PostgreSQL/update_data.py	
+@@ -12,7 +12,12 @@ def delete_data_from_db():
+     """
+     
+     sql_query = ''' DELETE FROM authors WHERE (author='Smith, Jackson' AND pages=400); '''
+-    
++   
++    conn = get_database_connection()
++    cur = conn.cursor()
++    cur.execute(sql_query)
++    conn.commit()
++    conn.close()
+  
+ 
+ def update_data():
