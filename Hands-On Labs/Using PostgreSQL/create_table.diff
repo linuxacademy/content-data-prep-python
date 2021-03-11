@@ -1,7 +1,7 @@
-diff --git a/Hands-On Labs/Using PostgreSQL/create_table.py b/Hands-On Labs/Using PostgreSQL/create_table.py
+diff --git Hands-On Labs/Using PostgreSQL/create_table.py Hands-On Labs/Using PostgreSQL/create_table.py
 index c6fee69..2ad094a 100644
---- a/Hands-On Labs/Using PostgreSQL/create_table.py	
-+++ b/Hands-On Labs/Using PostgreSQL/create_table.py	
+--- Hands-On Labs/Using PostgreSQL/create_table.py	
++++ Hands-On Labs/Using PostgreSQL/create_table.py	
 @@ -22,7 +22,14 @@ def create_table():
      );   
      """
