@@ -11,7 +11,7 @@ def delete_data_from_db():
     the extra data
     """
     
-    sql_query = ''' DELETE FROM authors WHERE (author="Smith, Jackson" AND pages=400); '''
+    sql_query = ''' DELETE FROM authors WHERE (author='Smith, Jackson' AND pages=400); '''
     
  
 
@@ -21,11 +21,11 @@ def update_data():
     execute the given sql statement to 
     correct the due date of the entry
     """
-    sql_query = ''' UPDATE authors SET due_date="2020-10-31" WHERE author="Smith, Jackson"; '''
+    sql_query = ''' UPDATE authors SET due_date='2020-10-31' WHERE author='Smith, Jackson'; '''
     
 
 def test_delete_data():
-    sql_query = ''' SELECT count(author) FROM authors WHERE author="Smith, Jackson"; '''
+    sql_query = ''' SELECT count(author) FROM authors WHERE author='Smith, Jackson'; '''
     
      # make connection to db
     cxn = get_database_connection()
@@ -44,7 +44,7 @@ def test_delete_data():
     cxn.close() 
 
 def test_update_data():
-    sql_query = ''' SELECT due_date FROM authors WHERE author="Smith, Jackson"; '''
+    sql_query = ''' SELECT due_date FROM authors WHERE author='Smith, Jackson'; '''
     
     # make connection to db
     cxn = get_database_connection()
