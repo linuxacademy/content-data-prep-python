@@ -51,7 +51,7 @@ def test_table_created():
     Test table was created.
     """
     
-    test_stmt = ''' SELECT count(name) FROM authors; '''
+    test_stmt = ''' SELECT count(ID) FROM authors; '''
     
     # get connection and cursor to db
     cxn = get_database_connection()
@@ -61,7 +61,7 @@ def test_table_created():
     cur.execute(test_stmt)
     cxn.commit()
     
-    assert cur.fetchone()[0] == 1, 'table does not exist.'
+    assert cur.fetchone()[0] == 0, 'table does not exist.'
 
     # close database connection.
     cur.close()
