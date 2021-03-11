@@ -18,7 +18,7 @@ def create_table():
         author      TEXT                NOT NULL,
         title       TEXT                NOT NULL,
         pages       INTEGER             NOT NULL,
-        due_date    CHAR(15)            NOT NULL
+        due_date    VARCHAR(15)            NOT NULL
     );   
     """
 
