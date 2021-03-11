@@ -1,0 +1,19 @@
+diff --git Hands-On Labs/Using PostgreSQL/create_table.py Hands-On Labs/Using PostgreSQL/create_table.py
+index 6c8fbed..a5d334a 100644
+--- Hands-On Labs/Using PostgreSQL/create_table.py	
++++ Hands-On Labs/Using PostgreSQL/create_table.py	
+@@ -44,7 +44,13 @@ def populate_table():
+ 
+     add_data_stmt = ''' INSERT INTO authors(author,title,pages,due_date) VALUES(%s, %s, %s, %s); '''
+     
+-    pass # student code goes here
++    conn = get_database_connection()
++    curs = conn.cursor()
++    curs.executemany(add_data_stmt, contract_list)
++    conn.commit()
++    curs.close()
++    conn.close()
++    pass
+ 
+ def test_table_created():
+     """ 
