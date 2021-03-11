@@ -42,8 +42,8 @@ def populate_table():
     ["Smith, Jackson", "The Sun Also Orbits", 600, "2029-10-31"]
 ]
 
-    add_data_stmt = ''' INSERT INTO authors(author,title,pages,due_date) VALUES(?,?,?,?); '''
-
+    add_data_stmt = ''' INSERT INTO authors(author,title,pages,due_date) VALUES(%s, %s, %s, %s); '''
+    
     pass # student code goes here
 
 def test_table_created():
