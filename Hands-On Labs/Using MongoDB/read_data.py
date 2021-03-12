@@ -11,13 +11,9 @@ def read_data_from_db():
     """
     
 
-def test_read_data(results):
-    expected = [('Thompson, Keith', 'Oh Python! My Python!', '2029-11-15'), ('Fritts, Larry', 'Fun with Django', '2021-06-23'), ('Applegate, John', 'When Bees Attack! The Horror!', '2020-12-10'), ('Brown, James', "Martin Buber's Philosophies", '0221-07-12'), ('Smith, Jackson', 'The Sun Also Orbits', '2020-10-31'), ('Smith, Jackson', 'The Sun Also Orbits', '2029-10-31')]  
-    assert results == expected, "the results do not match the expected"
-
 def main():
     results = read_data_from_db()
-    """test_read_data(results)"""
+    assert results, "No results found!"
 
     # Provide the data in readable format
     print(f"Author\tTitle\tDue Date\t\n")
