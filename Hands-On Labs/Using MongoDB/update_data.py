@@ -14,7 +14,6 @@ def delete_data_from_db():
     
     sql_query = ''' DELETE FROM authors WHERE (author='Smith, Jackson' AND pages=400); '''
     
- 
 
 def update_data():
     """ Update the selected data.
@@ -23,7 +22,7 @@ def update_data():
     correct the due date of the entry
     """
     sql_query = ''' UPDATE authors SET due_date='2020-10-31' WHERE author='Smith, Jackson'; '''
-    
+
 
 def test_delete_data():
     sql_query = ''' SELECT count(author) FROM authors WHERE author='Smith, Jackson'; '''
@@ -37,8 +36,7 @@ def test_delete_data():
     # find all documents with "Smith, Jackson" as the author
     for contract in contracts.find({"author": "Smith, Jackson"}):
             results.append(contract)
-
-    assert results[0][0] == 1, "the number of Smith Jackson rows is incorrect"
+    assert len(results) == 1, "the number of Smith Jackson rows is incorrect"
 
 
 def test_update_data():
@@ -54,7 +52,7 @@ def test_update_data():
     for contract in contracts.find({"author": "Smith, Jackson"}):
             results.append(contract)
 
-    assert results[0][0] == "2020-10-31", "due date not updated correctly"
+    assert results[0]["due_date"] == "2020-10-31", "due date not updated correctly"
 
 def main():
     delete_data_from_db()
