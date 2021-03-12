@@ -18,7 +18,7 @@ def main():
     # Provide the data in readable format
     print(f"Author\tTitle\tDue Date\t\n")
     for item in results:
-        print(f"{item[0]}\t{item[1]}\t{item[2]}\n")
+        print(f"{item['author']}\t{item['title']}\t{item['due_date']}\n")
 
            
 if __name__ == "__main__":
