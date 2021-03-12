@@ -1,0 +1,19 @@
+diff --git Hands-On Labs/Using MongoDB/read_data.py Hands-On Labs/Using MongoDB/read_data.py
+index 06980e9..2608bcf 100644
+--- Hands-On Labs/Using MongoDB/read_data.py	
++++ Hands-On Labs/Using MongoDB/read_data.py	
+@@ -9,7 +9,13 @@ def read_data_from_db():
+     Read all documents from the collection.
+ 
+     """
+-    
++    db = get_database_connection()
++    contracts = db[COLLECTION]
++    results = list()
++    for contract in contracts.find():
++        results.append(contract)
++    return results
++
+ 
+ def main():
+     results = read_data_from_db()
