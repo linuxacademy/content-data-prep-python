@@ -1,0 +1,19 @@
+diff --git Hands-On Labs/Using MongoDB/update_data.py Hands-On Labs/Using MongoDB/update_data.py
+index 48a45a7..26acc8d 100644
+--- Hands-On Labs/Using MongoDB/update_data.py	
++++ Hands-On Labs/Using MongoDB/update_data.py	
+@@ -23,6 +23,14 @@ def update_data():
+     """
+     sql_query = ''' UPDATE authors SET due_date='2020-10-31' WHERE author='Smith, Jackson'; '''
+ 
++    # make connection to db
++    db = get_database_connection()
++
++    contracts = db[COLLECTION]
++
++    res = contracts.update_many({"author": "Smith, Jackson"}, {"$set": {"due_date": "2020-10-31"}})
++    print (res.modified_count, "documents updated.")
++
+ 
+ def test_delete_data():
+     sql_query = ''' SELECT count(author) FROM authors WHERE author='Smith, Jackson'; '''

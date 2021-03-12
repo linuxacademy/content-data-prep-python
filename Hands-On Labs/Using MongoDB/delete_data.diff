@@ -1,0 +1,19 @@
+diff --git Hands-On Labs/Using MongoDB/update_data.py Hands-On Labs/Using MongoDB/update_data.py
+index 48a45a7..3808207 100644
+--- Hands-On Labs/Using MongoDB/update_data.py	
++++ Hands-On Labs/Using MongoDB/update_data.py	
+@@ -14,6 +14,14 @@ def delete_data_from_db():
+     
+     sql_query = ''' DELETE FROM authors WHERE (author='Smith, Jackson' AND pages=400); '''
+     
++    # make connection to db
++    db = get_database_connection()
++
++    contracts = db[COLLECTION]
++
++    res = contracts.delete_many({"author": "Smith, Jackson", "pages": "400"})
++    print (res.deleted_count, "documents deleted.")
++
+ 
+ def update_data():
+     """ Update the selected data.
