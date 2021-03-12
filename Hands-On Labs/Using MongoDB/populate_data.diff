@@ -1,0 +1,19 @@
+diff --git Hands-On Labs/Using MongoDB/populate_data.py Hands-On Labs/Using MongoDB/populate_data.py
+index 1bba613..f19105d 100644
+--- Hands-On Labs/Using MongoDB/populate_data.py	
++++ Hands-On Labs/Using MongoDB/populate_data.py	
+@@ -21,9 +21,12 @@ def populate_data():
+         {"author": "Smith, Jackson", "title": "The Sun Also Orbits", "pages": "400", "due_date": "2020-10-31"},
+         {"author": "Smith, Jackson", "title": "The Sun Also Orbits", "pages": "600", "due_date": "2029-10-31"}
+     ]
+-
+     
+-    pass # student code goes here
++    db = get_database_connection()
++    contracts = db[COLLECTION]
++
++    result = contracts.insert_many(contract_list)
++    return result
+ 
+ def test_populate_data():
+     # Get db connection

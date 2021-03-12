@@ -1,0 +1,14 @@
+diff --git Hands-On Labs/Using MongoDB/connect_db.py Hands-On Labs/Using MongoDB/connect_db.py
+index 509af24..5490932 100644
+--- Hands-On Labs/Using MongoDB/connect_db.py	
++++ Hands-On Labs/Using MongoDB/connect_db.py	
+@@ -8,5 +8,8 @@ def get_database_connection():
+     dabatase object
+     """
+ 
+-    pass
++    from pymongo import MongoClient
++    client = MongoClient('mongodb://localhost:27017/')
++
++    return client[DB_NAME]
+ 
