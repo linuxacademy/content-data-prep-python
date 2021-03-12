@@ -4,6 +4,7 @@ import pymongo
 from connect_db import get_database_connection
 
 DB_NAME = "contracts"
+COLLECTION = "contracts"
 
 def populate_data():
     """
@@ -28,9 +29,13 @@ def test_populate_data():
     # Get db connection
     db = get_database_connection()
 
-    contracts = db.contracts
+    contracts = db[COLLECTION]
     
-    assert contracts.count_documents({}) == 6, 'The table does not have six rows.'
+    count = 0
+    for contract in db[COLLECTION].find():
+        count = count + 1
+
+    assert count == 6, 'The table does not have six rows.'
 
 def main():
     populate_data()
