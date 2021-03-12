@@ -1,6 +1,6 @@
 import psycopg2
 
-DB_NAME = "demo"
+DB_NAME = "contracts"
 
 def get_database_connection():
     """

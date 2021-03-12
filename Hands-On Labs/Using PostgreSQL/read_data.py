@@ -1,7 +1,7 @@
 import sqlite3
 from connect_db import get_database_connection
 
-DB_NAME = "demo"
+DB_NAME = "contracts"
 
 def read_data_from_db():
     """

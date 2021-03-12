@@ -3,7 +3,7 @@
 import psycopg2
 from connect_db import get_database_connection
 
-DB_NAME = "demo"
+DB_NAME = "contracts"
 
 def create_table():
     """
