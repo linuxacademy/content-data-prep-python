@@ -1,4 +1,4 @@
-import sqlite3
+import psycopg2
 from connect_db import get_database_connection
 
 DB_NAME = "contracts"
